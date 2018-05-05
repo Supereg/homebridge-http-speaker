@@ -1,7 +1,7 @@
 "use strict";
 
-var Service, Characteristic;
-var request = require("request");
+let Service, Characteristic;
+const request = require("request");
 
 module.exports = function (homebridge) {
     Service = homebridge.hap.Service;
@@ -46,7 +46,7 @@ HTTP_SPEAKER.prototype = {
 
     getServices: function () {
         this.log("Creating speaker!");
-        var speakerService = new Service.Speaker(this.name);
+        const speakerService = new Service.Speaker(this.name);
 
         if (this.power.enabled) { // since im able to power off/on my speaker i decided to add the option to add the "On" Characteristic
             this.log("... adding on characteristic");
@@ -88,7 +88,7 @@ HTTP_SPEAKER.prototype = {
                 callback(new Error("getMuteState() returned http error " + response.statusCode));
             }
             else {
-                var muted = parseInt(body) > 0;
+                const muted = parseInt(body) > 0;
                 this.log("Speaker is currently %s", muted? "MUTED": "NOT MUTED");
                 callback(null, muted);
             }
@@ -102,7 +102,7 @@ HTTP_SPEAKER.prototype = {
             return;
         }
 
-        var url = muted? this.mute.onUrl: this.mute.offUrl;
+        const url = muted ? this.mute.onUrl : this.mute.offUrl;
 
         this._httpRequest(url, "", this.mute.httpMethod, function (error, response, body) {
             if (error) {
@@ -138,7 +138,7 @@ HTTP_SPEAKER.prototype = {
                 callback(new Error("getPowerState() returned http error " + response.statusCode));
             }
             else {
-                var powered = parseInt(body) > 0;
+                const powered = parseInt(body) > 0;
                 this.log("Speaker is currently %s", powered? "OM": "OFF");
 
                 callback(null, powered);
@@ -153,7 +153,7 @@ HTTP_SPEAKER.prototype = {
             return;
         }
 
-        var url = power? this.power.onUrl: this.power.offUrl;
+        const url = power ? this.power.onUrl : this.power.offUrl;
 
         this._httpRequest(url, "", this.power.httpMethod, function (error, response, body) {
             if (error) {
@@ -189,7 +189,7 @@ HTTP_SPEAKER.prototype = {
                 callback(new Error("getVolume() returned http error " + response.statusCode));
             }
             else {
-                var volume = parseInt(body);
+                const volume = parseInt(body);
                 this.log("Speaker's volume is at  %s %", volume);
 
                 callback(null, volume);
@@ -204,7 +204,7 @@ HTTP_SPEAKER.prototype = {
             return;
         }
 
-        var url = this.volume.setUrl.replace("%s", volume);
+        const url = this.volume.setUrl.replace("%s", volume);
 
         this._httpRequest(url, "", this.volume.httpMethod, function (error, response, body) {
             if (error) {
