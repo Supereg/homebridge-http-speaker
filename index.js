@@ -68,7 +68,15 @@ HTTP_SPEAKER.prototype = {
             .on("get", this.getVolume.bind(this))
             .on("set", this.setVolume.bind(this));
 
-        return [speakerService];
+        const informationService = new Service.AccessoryInformation();
+
+        informationService
+            .setCharacteristic(Characteristic.Manufacturer, "Andreas Bauer")
+            .setCharacteristic(Characteristic.Model, "HTTP Speaker")
+            .setCharacteristic(Characteristic.SerialNumber, "SP01")
+            .setCharacteristic(Characteristic.FirmwareRevision, "1.1.0");
+
+        return [informationService, speakerService];
     },
 
     getMuteState: function (callback) {
