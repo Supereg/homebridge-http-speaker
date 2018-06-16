@@ -1,6 +1,6 @@
 {
   "name": "homebridge-http-speaker",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": "ISC",
   "description": "Homebridge plugin to control a web-based speaker device",
   "keywords": [
