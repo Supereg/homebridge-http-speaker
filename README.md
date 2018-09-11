@@ -6,15 +6,10 @@ This could be handy to outsource the "brains" of the speaker to an separate appl
 language.
 
 ## Compatibility notice
-The speaker service was introduced within the HomeKit protocol with the release of iOS 10. However the Home App from 
-Apple doesn't support controlling speakers. Even with iOS 11.4/iOS 12 support was not added to the Home App. Though 
-most third party HomeKit apps (I like the Example of [Eve App](https://itunes.apple.com/app/elgato-eve/id917695792)) 
-are able to control speakers.  
-Since we have passed the release of the HomePod and are going the get iOS 12 soon and still haven't seen support for 
-the speaker service in the Home App, I think we will never see support for it. To me it seems like the speaker service 
-was supposed to be used by AirPlay 2 speakers to be integrated into the Home App. However with the release of AirPlay 2 
-with iOS 11.4 speakers get discovered with the AirPlay 2 protocol itself somehow and therefore the speaker service is 
-obsolete. I could be wrong, but we definitely won't see support in the next three to four months as of June 2018.
+The speaker servcie was introduced within HAP with the release of iOS 10. It is meant for video doorbells to indicate 
+that they support audio output. However Apps like the [Eve App](https://itunes.apple.com/app/elgato-eve/id917695792) 
+just display the service and you can control your speaker volume. Though neither the Home App nor Siri support controlling
+standalone Speaker services.
 
 ## Installation
 First of all you should already have installed `Homebridge` on your device. Follow the instructions over at the
