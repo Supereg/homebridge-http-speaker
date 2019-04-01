@@ -6,7 +6,7 @@ This could be handy to outsource the "brains" of the speaker to an separate appl
 language.
 
 ## Compatibility notice
-The speaker servcie was introduced within HAP with the release of iOS 10. It is meant for video doorbells to indicate 
+The speaker service was introduced within HAP with the release of iOS 10. It is meant for video doorbells to indicate 
 that they support audio output. However Apps like the [Eve App](https://itunes.apple.com/app/elgato-eve/id917695792) 
 just display the service and you can control your speaker volume. Though neither the Home App nor Siri support controlling
 standalone Speaker services.
